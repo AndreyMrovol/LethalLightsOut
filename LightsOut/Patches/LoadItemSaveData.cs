@@ -4,9 +4,9 @@ using UnityEngine;
 namespace LightsOut
 {
     [HarmonyPatch(typeof(StartOfRound))]
-    public static class SetShipReadyToLandPatch
+    public static class LoadItemPatch
     {
-        [HarmonyPatch("SetShipReadyToLand")]
+        [HarmonyPatch("LoadShipGrabbableItems")]
         [HarmonyPostfix]
         public static void TurnOffLights(StartOfRound __instance)
         {

@@ -14,22 +14,7 @@ namespace LightsOut
 
             if (__instance.isInShipRoom)
             {
-                if (
-                    __instance.itemProperties.itemName == "Fancy lamp"
-                    || __instance.itemProperties.itemName == "Apparatus"
-                )
-                {
-                    Plugin.logger.LogInfo("Disabling light");
-                    __instance.GetComponentInChildren<Light>().enabled = false;
-                    // __instance.EnableItemMeshes(false);
-
-                    if (typeof(LungProp) == __instance.itemProperties.GetType())
-                    {
-                        Plugin.logger.LogInfo("LungProp");
-                        AudioSource thisAudio = __instance.gameObject.GetComponent<AudioSource>();
-                        thisAudio.Stop();
-                    }
-                }
+                LightSourceToggle.Disable(__instance);
             }
         }
 
@@ -39,20 +24,7 @@ namespace LightsOut
         {
             Plugin.logger.LogDebug($"GrabItemOnClient {__instance.itemProperties.itemName}");
 
-            if (
-                __instance.itemProperties.itemName == "Fancy lamp"
-                || __instance.itemProperties.itemName == "Apparatus"
-            )
-            {
-                Plugin.logger.LogInfo("Enabling light");
-                __instance.GetComponentInChildren<Light>().enabled = true;
-
-                if (typeof(LungProp) == __instance.itemProperties.GetType())
-                {
-                    Plugin.logger.LogInfo("LungProp");
-                }
-                // __instance.EnableItemMeshes(false);
-            }
+            LightSourceToggle.Enable(__instance);
         }
     }
 }
