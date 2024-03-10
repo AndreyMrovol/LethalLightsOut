@@ -17,6 +17,10 @@
         <PackageReference Include="Lib.Harmony" Version="2.2.2" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="UnityEngine.Modules" Version="2022.3.9" IncludeAssets="compile" />
+
+        <Reference Include="GeneralImprovements" PrivateAssets="All">
+            <HintPath>../lib/GeneralImprovements.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">

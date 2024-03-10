@@ -18,6 +18,11 @@ namespace LightsOut
                 AudioSource thisAudio = item.gameObject.GetComponent<AudioSource>();
                 thisAudio.Stop();
             }
+
+            if (item.__getTypeName() == "ToggleableFancyLamp")
+            {
+                GeneralImprovementsPatch.DisableGILamp(item);
+            }
         }
 
         public static void Enable(GrabbableObject item)
@@ -40,7 +45,11 @@ namespace LightsOut
                 return true;
             }
 
-            if (item.__getTypeName() != "PhysicsProp" && item.__getTypeName() != "LungProp")
+            if (
+                item.__getTypeName() != "PhysicsProp"
+                && item.__getTypeName() != "LungProp"
+                && item.__getTypeName() != "ToggleableFancyLamp"
+            )
             {
                 Plugin.logger.LogDebug("Not a PhysicsProp");
                 return true;
