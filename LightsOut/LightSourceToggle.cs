@@ -4,7 +4,7 @@ namespace LightsOut
 {
     public static class LightSourceToggle
     {
-        public static void Disable(GrabbableObject item)
+        public static void Disable(GrabbableObject item, bool stopAudio = true)
         {
             if (ShouldReturn(item))
                 return;
@@ -13,7 +13,7 @@ namespace LightsOut
 
             item.GetComponentInChildren<Light>().enabled = false;
 
-            if (typeof(LungProp) == item.itemProperties.GetType())
+            if (typeof(LungProp) == item.itemProperties.GetType() && stopAudio)
             {
                 AudioSource thisAudio = item.gameObject.GetComponent<AudioSource>();
                 thisAudio.Stop();
