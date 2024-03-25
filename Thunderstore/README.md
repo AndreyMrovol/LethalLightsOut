@@ -1,6 +1,7 @@
 # LightsOut
 
 A small plugin for disabling lamps and apparatice on ship to improve FPS.
+Now works with GeneralImprovements' lamps!
 
 ## Credits
 
