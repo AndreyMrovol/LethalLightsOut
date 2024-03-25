@@ -14,7 +14,7 @@ namespace LightsOut
             var ItemsOnShip = ship.GetComponentsInChildren<GrabbableObject>();
             foreach (var item in ItemsOnShip)
             {
-                LightSourceToggle.Disable(item, false);
+                LightSourceToggle.Disable(item, true);
             }
         }
     }

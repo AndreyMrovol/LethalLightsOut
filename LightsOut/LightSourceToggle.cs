@@ -4,7 +4,7 @@ namespace LightsOut
 {
     public static class LightSourceToggle
     {
-        public static void Disable(GrabbableObject item, bool stopAudio = true)
+        public static void Disable(GrabbableObject item, bool stopAudio = false)
         {
             if (ShouldReturn(item))
                 return;
@@ -16,7 +16,7 @@ namespace LightsOut
             if (typeof(LungProp) == item.itemProperties.GetType() && stopAudio)
             {
                 AudioSource thisAudio = item.gameObject.GetComponent<AudioSource>();
-                thisAudio.Stop();
+                thisAudio.volume = 0;
             }
 
             if (item.__getTypeName() == "ToggleableFancyLamp")
@@ -33,15 +33,24 @@ namespace LightsOut
             Plugin.logger.LogDebug($"Enabling light of {item.itemProperties.itemName}");
 
             item.GetComponentInChildren<Light>().enabled = true;
+
+            if (item.__getTypeName() == "ToggleableFancyLamp")
+            {
+                GeneralImprovementsPatch.EnableGILamp(item);
+            }
         }
 
         private static bool ShouldReturn(GrabbableObject item)
         {
             Plugin.logger.LogDebug($"{item.__getTypeName()}");
 
+            if (!item.isInShipRoom)
+            {
+                return true;
+            }
+
             if (item.GetComponentInChildren<Light>() == null)
             {
-                Plugin.logger.LogDebug("No light found");
                 return true;
             }
 
@@ -51,7 +60,6 @@ namespace LightsOut
                 && item.__getTypeName() != "ToggleableFancyLamp"
             )
             {
-                Plugin.logger.LogDebug("Not a PhysicsProp");
                 return true;
             }
 
