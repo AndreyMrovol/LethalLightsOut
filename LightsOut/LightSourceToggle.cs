@@ -13,10 +13,15 @@ namespace LightsOut
 
             item.GetComponentInChildren<Light>().enabled = false;
 
-            if (typeof(LungProp) == item.itemProperties.GetType() && stopAudio)
+            if ("LungProp" == item.__getTypeName() && stopAudio)
             {
-                AudioSource thisAudio = item.gameObject.GetComponent<AudioSource>();
-                thisAudio.volume = 0;
+                Plugin.logger.LogDebug("Disabling sound of LungProp");
+
+                LungProp itemLung = (LungProp)item;
+                itemLung.isLungDocked = false;
+                itemLung.isLungDockedInElevator = false;
+                itemLung.isLungPowered = false;
+                itemLung.GetComponent<AudioSource>().Stop();
             }
 
             if (item.__getTypeName() == "ToggleableFancyLamp")
