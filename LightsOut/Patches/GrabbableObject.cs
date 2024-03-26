@@ -6,23 +6,23 @@ namespace LightsOut
     [HarmonyPatch(typeof(GrabbableObject))]
     public static class GrabbableObjectPatch
     {
-        [HarmonyPatch("DiscardItemOnClient")]
+        [HarmonyPatch("DiscardItemClientRpc")]
         [HarmonyPostfix]
-        public static void DropPatch(GrabbableObject __instance)
+        public static void DiscardItemClientRpc(GrabbableObject __instance)
         {
-            Plugin.logger.LogDebug($"DiscardItemOnClient {__instance.itemProperties.itemName}");
+            Plugin.logger.LogDebug($"DiscardItemClientRpc {__instance.itemProperties.itemName}");
 
             if (__instance.isInShipRoom)
             {
-                LightSourceToggle.Disable(__instance);
+                LightSourceToggle.Disable(__instance, true);
             }
         }
 
-        [HarmonyPatch("GrabItemOnClient")]
+        [HarmonyPatch("GrabClientRpc")]
         [HarmonyPostfix]
-        public static void GrabPatch(GrabbableObject __instance)
+        public static void GrabClientRpc(GrabbableObject __instance)
         {
-            Plugin.logger.LogDebug($"GrabItemOnClient {__instance.itemProperties.itemName}");
+            Plugin.logger.LogDebug($"GrabClientRpc {__instance.itemProperties.itemName}");
 
             LightSourceToggle.Enable(__instance);
         }
