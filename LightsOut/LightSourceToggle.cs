@@ -47,7 +47,7 @@ namespace LightsOut
 
         private static bool ShouldReturn(GrabbableObject item)
         {
-            Plugin.logger.LogDebug($"{item.__getTypeName()}");
+            // Plugin.logger.LogDebug($"{item.__getTypeName()}");
 
             if (!item.isInShipRoom)
             {
