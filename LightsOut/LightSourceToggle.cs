@@ -1,3 +1,5 @@
+using System.Linq;
+using HarmonyLib;
 using UnityEngine;
 
 namespace LightsOut
@@ -11,7 +13,14 @@ namespace LightsOut
 
             Plugin.logger.LogDebug($"Disabling light of {item.itemProperties.itemName}");
 
-            item.GetComponentInChildren<Light>().enabled = false;
+            item.GetComponentsInChildren<Light>().ToList().Do(l => l.enabled = false);
+            item.GetComponentsInChildren<ParticleSystem>()
+                .ToList()
+                .Do(p =>
+                {
+                    p.Clear();
+                    p.Stop();
+                });
 
             if ("LungProp" == item.__getTypeName() && stopAudio)
             {
@@ -63,6 +72,7 @@ namespace LightsOut
                 item.__getTypeName() != "PhysicsProp"
                 && item.__getTypeName() != "LungProp"
                 && item.__getTypeName() != "ToggleableFancyLamp"
+                && item.__getTypeName() != "lighterStuff"
             )
             {
                 return true;
