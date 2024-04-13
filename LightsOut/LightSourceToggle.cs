@@ -60,11 +60,13 @@ namespace LightsOut
 
             if (!item.isInShipRoom)
             {
+                Plugin.logger.LogDebug($"{item.__getTypeName()} is not in ship room");
                 return true;
             }
 
             if (item.GetComponentInChildren<Light>() == null)
             {
+                Plugin.logger.LogDebug($"{item.__getTypeName()} has no light");
                 return true;
             }
 
@@ -75,6 +77,7 @@ namespace LightsOut
             // && item.__getTypeName() != "lighterStuff"
             )
             {
+                Plugin.logger.LogDebug($"{item.__getTypeName()} is not a predefined type");
                 return true;
             }
 
