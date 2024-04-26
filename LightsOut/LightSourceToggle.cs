@@ -46,7 +46,7 @@ namespace LightsOut
 
             Plugin.logger.LogDebug($"Enabling light of {item.itemProperties.itemName}");
 
-            item.GetComponentInChildren<Light>().enabled = true;
+            item.GetComponentsInChildren<Light>().ToList().Do(l => l.enabled = true);
 
             if (item.__getTypeName() == "ToggleableFancyLamp")
             {
