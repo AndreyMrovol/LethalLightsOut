@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <AssemblyName>LightsOut</AssemblyName>
+        <RootNamespace>LightsOut</RootNamespace>
         <Description>A template for Lethal Company</Description>
         <Version>0.0.1</Version>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
