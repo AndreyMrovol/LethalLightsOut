@@ -6,7 +6,7 @@ namespace LightsOut
     [HarmonyPatch(typeof(StartOfRound))]
     public static class LoadItemPatch
     {
-        [HarmonyPatch("LoadShipGrabbableItems")]
+        [HarmonyPatch(nameof(StartOfRound.LoadShipGrabbableItems))]
         [HarmonyPostfix]
         public static void ServerTurnOffLights(StartOfRound __instance)
         {
@@ -18,7 +18,7 @@ namespace LightsOut
             }
         }
 
-        [HarmonyPatch("SyncShipUnlockablesClientRpc")]
+        [HarmonyPatch(nameof(StartOfRound.SyncShipUnlockablesClientRpc))]
         [HarmonyPostfix]
         public static void ClientTurnOffLights(StartOfRound __instance)
         {
