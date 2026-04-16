@@ -6,7 +6,7 @@ namespace LightsOut
     [HarmonyPatch(typeof(StartOfRound))]
     public static class SetShipReadyToLandPatch
     {
-        [HarmonyPatch("SetShipReadyToLand")]
+        [HarmonyPatch(nameof(StartOfRound.SetShipReadyToLand))]
         [HarmonyPostfix]
         public static void TurnOffLights(StartOfRound __instance)
         {
