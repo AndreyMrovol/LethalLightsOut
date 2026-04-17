@@ -1,7 +1,0 @@
-{
-	"name": "LightsOut",
-	"version_number": "0.1.0",
-	"website_url": "https://github.com/AndreyMrovol/LethalLightsOut",
-	"description": "Disables lamps and apparatus on ship to improve FPS.",
-	"dependencies": ["BepInEx-BepInExPack-5.4.2305"]
-}
