@@ -99,4 +99,18 @@
     <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
         <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all"/>
     </ItemGroup>
+
+    <PropertyGroup>
+        <GameDirectory>V:\Steam\steamapps\common\Lethal Company</GameDirectory>
+        <LibraryDirectory>../lib</LibraryDirectory>
+        <DebugLibraryDirectory>V:\LC-ModLibraries</DebugLibraryDirectory>
+        <DebugProfile>V:\GaleModManager\gale\lethal-company\profiles\Andrey's Testing Profile\BepInEx\plugins\LightsOut</DebugProfile>
+    </PropertyGroup>
+
+    <Target Name="CopyToDebugProfile" AfterTargets="NetcodePatch" Condition="'$(Configuration)' == 'Debug'">
+        <Message Importance="high" Text="Copying To LibraryDir" />
+
+        <Copy SourceFiles="$(TargetDir)$(AssemblyName).dll" DestinationFolder="$(DebugLibraryDirectory)" />
+        <Copy SourceFiles="$(TargetDir)$(AssemblyName).dll" DestinationFolder="$(DebugProfile)" />
+    </Target>
 </Project>

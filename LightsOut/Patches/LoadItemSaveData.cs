@@ -1,7 +1,7 @@
 using HarmonyLib;
 using UnityEngine;
 
-namespace LightsOut
+namespace LightsOut.Patches
 {
     [HarmonyPatch(typeof(StartOfRound))]
     public static class LoadItemPatch

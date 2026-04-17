@@ -1,6 +1,6 @@
 using GeneralImprovements.Items;
 
-namespace LightsOut
+namespace LightsOut.Patches
 {
     class GeneralImprovementsPatch
     {
@@ -15,7 +15,7 @@ namespace LightsOut
             }
             catch
             {
-                Plugin.logger.LogWarning("Failed to disable GI lamp");
+                Plugin.debugLogger.LogWarning("Failed to disable GI lamp");
             }
         }
 
@@ -30,7 +30,7 @@ namespace LightsOut
             }
             catch
             {
-                Plugin.logger.LogWarning("Failed to enable GI lamp");
+                Plugin.debugLogger.LogWarning("Failed to enable GI lamp");
             }
         }
     }
