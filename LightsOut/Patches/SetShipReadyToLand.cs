@@ -3,19 +3,19 @@ using UnityEngine;
 
 namespace LightsOut.Patches
 {
-    [HarmonyPatch(typeof(StartOfRound))]
-    public static class SetShipReadyToLandPatch
+  [HarmonyPatch(typeof(StartOfRound))]
+  public static class SetShipReadyToLandPatch
+  {
+    [HarmonyPatch(nameof(StartOfRound.SetShipReadyToLand))]
+    [HarmonyPostfix]
+    public static void TurnOffLights(StartOfRound __instance)
     {
-        [HarmonyPatch(nameof(StartOfRound.SetShipReadyToLand))]
-        [HarmonyPostfix]
-        public static void TurnOffLights(StartOfRound __instance)
-        {
-            GameObject ship = GameObject.Find("/Environment/HangarShip");
-            var ItemsOnShip = ship.GetComponentsInChildren<GrabbableObject>();
-            foreach (var item in ItemsOnShip)
-            {
-                LightSourceToggle.Disable(item, true);
-            }
-        }
+      GameObject ship = GameObject.Find("/Environment/HangarShip");
+      var ItemsOnShip = ship.GetComponentsInChildren<GrabbableObject>();
+      foreach (var item in ItemsOnShip)
+      {
+        LightSourceToggle.Disable(item, true);
+      }
     }
+  }
 }
