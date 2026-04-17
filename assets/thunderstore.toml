@@ -25,10 +25,6 @@ source = "../LightsOut/bin/Release/netstandard2.1/LightsOut.dll"
 target = "/"
 
 [[build.copy]]
-source = "../CHANGELOG.md"
-target = "/"
-
-[[build.copy]]
 source = "../LICENSE.md"
 target = "/"
 
