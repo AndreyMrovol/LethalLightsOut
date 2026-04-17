@@ -1,9 +1,14 @@
 # LightsOut
 
-[![Thunderstore Version](https://img.shields.io/thunderstore/v/mrov/LightsOut?logo=thunderstore&logoColor=white)](https://thunderstore.io/c/lethal-company/p/mrov/LightsOut/)
-[![Thunderstore Downloads](https://img.shields.io/thunderstore/dt/mrov/LightsOut?logo=thunderstore&logoColor=white)](https://thunderstore.io/c/lethal-company/p/mrov/LightsOut/)
+<div style="display: flex; gap: 0.8em; flex-wrap: wrap; margin-bottom: 2em;">
+  <img src="https://img.shields.io/codefactor/grade/github/andreymrovol/LethalLightsOut?style=flat&logo=codefactor&logoColor=white&color=f7d96e&cacheSeconds=1200" alt="CodeFactor Grade">
+  <img src="https://img.shields.io/thunderstore/dt/mrov/LightsOut?style=flat&logo=thunderstore&logoColor=white&color=f7d96e&cacheSeconds=1200" alt="Thunderstore Downloads">
+  <img src="https://img.shields.io/github/actions/workflow/status/AndreyMrovol/LethalLightsOut/build.yml?branch=main&style=flat&logo=github&logoColor=white&color=f7d96e&cacheSeconds=1200" alt="GitHub Workflow Status">
+  <img src="https://img.shields.io/github/v/release/AndreyMrovol/LethalLightsOut?style=flat&logo=github&logoColor=white&color=f7d96e&cacheSeconds=1200" alt="GitHub Release Version">
 
-A small plugin for disabling lamps and apparatice on ship to improve FPS.
+  </div>
+
+**A small plugin for disabling lamps and apparatice on ship to improve FPS.**
 
 ## Credits
 
