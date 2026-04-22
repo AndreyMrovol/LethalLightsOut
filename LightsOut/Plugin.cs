@@ -20,7 +20,7 @@ namespace LightsOut
       ConfigManager.Init(Config);
 
       // Plugin startup logic
-      Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
+      Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} {MyPluginInfo.PLUGIN_VERSION} is loaded!");
     }
   }
 }
