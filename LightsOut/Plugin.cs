@@ -1,4 +1,5 @@
-﻿using BepInEx;
+﻿using System.Reflection;
+using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 
@@ -8,14 +9,13 @@ namespace LightsOut
   [BepInDependency("ShaosilGaming.GeneralImprovements", BepInDependency.DependencyFlags.SoftDependency)]
   public class Plugin : BaseUnityPlugin
   {
-    private readonly Harmony harmony = new(MyPluginInfo.PLUGIN_NAME);
     internal static new ManualLogSource Logger;
 
     private void Awake()
     {
       Logger = base.Logger;
 
-      harmony.PatchAll();
+      Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly(), MyPluginInfo.PLUGIN_GUID);
 
       ConfigManager.Init(Config);
 
