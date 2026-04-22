@@ -8,7 +8,7 @@ namespace LightsOut.Patches
   {
     [HarmonyPatch(nameof(StartOfRound.LoadShipGrabbableItems))]
     [HarmonyPostfix]
-    public static void ServerTurnOffLights(StartOfRound __instance)
+    public static void ServerTurnOffLights()
     {
       GameObject ship = GameObject.Find("/Environment/HangarShip");
       var ItemsOnShip = ship.GetComponentsInChildren<GrabbableObject>();
@@ -20,7 +20,7 @@ namespace LightsOut.Patches
 
     [HarmonyPatch(nameof(StartOfRound.SyncShipUnlockablesClientRpc))]
     [HarmonyPostfix]
-    public static void ClientTurnOffLights(StartOfRound __instance)
+    public static void ClientTurnOffLights()
     {
       GameObject ship = GameObject.Find("/Environment/HangarShip");
       var ItemsOnShip = ship.GetComponentsInChildren<GrabbableObject>();
