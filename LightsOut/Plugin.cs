@@ -17,8 +17,6 @@ namespace LightsOut
 
       Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly(), MyPluginInfo.PLUGIN_GUID);
 
-      ConfigManager.Init(Config);
-
       // Plugin startup logic
       Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} {MyPluginInfo.PLUGIN_VERSION} is loaded!");
     }
