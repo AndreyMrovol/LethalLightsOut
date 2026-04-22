@@ -12,13 +12,13 @@ namespace LightsOut
       if (ShouldReturn(item))
         return;
 
-      Plugin.debugLogger.LogDebug($"Disabling light of {item.itemProperties.itemName}");
+      Plugin.Logger.LogDebug($"Disabling light of {item.itemProperties.itemName}");
 
       item.GetComponentsInChildren<Light>().Do(l => l.enabled = false);
 
       if ("LungProp" == item.__getTypeName() && stopAudio)
       {
-        Plugin.debugLogger.LogDebug("Disabling sound of LungProp");
+        Plugin.Logger.LogDebug("Disabling sound of LungProp");
 
         LungProp itemLung = (LungProp)item;
         itemLung.isLungDocked = false;
@@ -38,7 +38,7 @@ namespace LightsOut
       if (ShouldReturn(item))
         return;
 
-      Plugin.debugLogger.LogDebug($"Enabling light of {item.itemProperties.itemName}");
+      Plugin.Logger.LogDebug($"Enabling light of {item.itemProperties.itemName}");
 
       item.GetComponentsInChildren<Light>().Do(l => l.enabled = true);
 
@@ -52,19 +52,19 @@ namespace LightsOut
     {
       if (!item.isInShipRoom)
       {
-        Plugin.debugLogger.LogDebug($"{item.__getTypeName()} is not in ship room");
+        Plugin.Logger.LogDebug($"{item.__getTypeName()} is not in ship room");
         return true;
       }
 
       if (item.__getTypeName() != "PhysicsProp" && item.__getTypeName() != "LungProp" && item.__getTypeName() != "ToggleableFancyLamp")
       {
-        Plugin.debugLogger.LogDebug($"{item.__getTypeName()} is not a predefined type");
+        Plugin.Logger.LogDebug($"{item.__getTypeName()} is not a predefined type");
         return true;
       }
 
       if (item.GetComponentInChildren<Light>() == null)
       {
-        Plugin.debugLogger.LogDebug($"{item.__getTypeName()} has no light");
+        Plugin.Logger.LogDebug($"{item.__getTypeName()} has no light");
         return true;
       }
 

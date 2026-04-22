@@ -15,7 +15,7 @@ namespace LightsOut.Patches
       }
       catch
       {
-        Plugin.debugLogger.LogWarning("Failed to disable GI lamp");
+        Plugin.Logger.LogWarning("Failed to disable GI lamp");
       }
     }
 
@@ -30,7 +30,7 @@ namespace LightsOut.Patches
       }
       catch
       {
-        Plugin.debugLogger.LogWarning("Failed to enable GI lamp");
+        Plugin.Logger.LogWarning("Failed to enable GI lamp");
       }
     }
   }

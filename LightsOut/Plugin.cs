@@ -8,13 +8,12 @@ namespace LightsOut
   [BepInDependency("ShaosilGaming.GeneralImprovements", BepInDependency.DependencyFlags.SoftDependency)]
   public class Plugin : BaseUnityPlugin
   {
-    internal static ManualLogSource logger;
     private readonly Harmony harmony = new(MyPluginInfo.PLUGIN_NAME);
-    internal static Logger debugLogger = new(MyPluginInfo.PLUGIN_NAME);
+    internal static new ManualLogSource Logger;
 
     private void Awake()
     {
-      logger = Logger;
+      Logger = base.Logger;
 
       harmony.PatchAll();
 
