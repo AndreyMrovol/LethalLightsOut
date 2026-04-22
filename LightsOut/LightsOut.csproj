@@ -53,7 +53,6 @@
     </ItemGroup>
     
     <ItemGroup>
-        <PackageReference Include="mrov-MrovLib" Version="*-*" PrivateAssets="all" />
         <PackageReference Include="ShaosilGaming-GeneralImprovements" Version="1.5.4" PrivateAssets="all" />
     </ItemGroup>
 

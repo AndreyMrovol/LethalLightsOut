@@ -10,7 +10,7 @@ namespace LightsOut.Patches
     [HarmonyPostfix]
     public static void DiscardItemClientRpc(GrabbableObject __instance)
     {
-      Plugin.debugLogger.LogDebug($"DiscardItem {__instance.itemProperties.itemName}");
+      Plugin.Logger.LogDebug($"DiscardItem {__instance.itemProperties.itemName}");
 
       if (__instance.isInShipRoom)
       {
@@ -22,7 +22,7 @@ namespace LightsOut.Patches
     [HarmonyPostfix]
     public static void GrabClientRpc(GrabbableObject __instance)
     {
-      Plugin.debugLogger.LogDebug($"GrabItem {__instance.itemProperties.itemName}");
+      Plugin.Logger.LogDebug($"GrabItem {__instance.itemProperties.itemName}");
 
       LightSourceToggle.Enable(__instance);
     }
