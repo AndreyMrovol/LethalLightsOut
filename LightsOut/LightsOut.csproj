@@ -19,8 +19,6 @@
         
         <BepInExPluginGuid>$(PackageId)</BepInExPluginGuid>
     </PropertyGroup>
-    
-    <!-- <Import Project="./LightsOut.csproj.user" /> -->
 
     <ItemGroup>
         <None Include="$(ProjectDir)../README.md" Pack="true" PackagePath="/" />
