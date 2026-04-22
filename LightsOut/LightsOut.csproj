@@ -11,19 +11,8 @@
         <RootNamespace>LightsOut</RootNamespace>
         
         <PackageId>mrov.LightsOut</PackageId>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <IsPackable>true</IsPackable>
-        
-        <PackageIcon>icon.png</PackageIcon>
-        <PackageTags>lethal;company;bepinex;harmony</PackageTags>
-        
         <BepInExPluginGuid>$(PackageId)</BepInExPluginGuid>
     </PropertyGroup>
-
-    <ItemGroup>
-        <None Include="$(ProjectDir)../README.md" Pack="true" PackagePath="/" />
-        <None Include="$(ProjectDir)../icon.png" Pack="true" PackagePath="/"/>
-    </ItemGroup>
 
     <PropertyGroup>
         <RestoreAdditionalProjectSources>
